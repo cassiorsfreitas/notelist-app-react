@@ -1,7 +1,14 @@
 {
-    "users": [{
+    "tasks": [
+        {
         "id": 1,
-        "name": "Arthur Oliveira",
-        "email": "aoliveira@example.com",
-    }]
+        "title": "Learning react",
+        "description": "JSX, compronents and create-react-app"
+        },
+        {
+        "id": 2,
+        "name": "Organize bookshelf",
+        "email": "Sort by category and year"
+        }
+    ]
 }
