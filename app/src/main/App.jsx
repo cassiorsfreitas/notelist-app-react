@@ -1,6 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import './App.css'
 import React from 'react'
+import { SenseiProvider, themeDark as theme, } from "react-sensei";
 
 import Logo from '../components/template/Logo'
 import Nav from '../components/template/Nav'
@@ -9,9 +10,13 @@ import Footer from '../components/template/Footer'
 
 
 export default props =>
-    <div className="app">
-        <Logo/>
-        <Nav/>
-        <Main/>
-        <Footer/>
-    </div>
+  <SenseiProvider theme={theme}>
+
+        <div className="app">
+            <Logo/>
+            <Nav/>
+            <Main/>
+            <Footer/>
+        </div>
+
+    </SenseiProvider>
