@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import './App.css'
 import React from 'react'
 

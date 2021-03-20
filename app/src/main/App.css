@@ -1,0 +1,30 @@
+/* Debugger CSS */
+.logo{
+    background-color: red;
+}
+.menu-area{
+    background-color: blue;
+}
+.header{
+    background-color: yellow;
+}
+.content{
+    background-color: green;
+}
+.footer{
+    background-color: purple;
+}
+
+/* Init CSS */
+
+* {
+    font-family: 'Poppins', sans-serif;
+    background-color: #fff;
+}
+
+.app{
+    margin: 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 5vh 5vh 10vh 70vh 10vh;
+}
