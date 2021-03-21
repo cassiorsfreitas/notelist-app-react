@@ -2,8 +2,6 @@
 import './Logo.css'
 import React from 'react'
 
-var FA = require('react-fontawesome')
-
 export default props =>
     <aside className="logo">
         Logo    

@@ -1,0 +1,10 @@
+.container{
+    padding: 1em;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card:not(:first-child) {
+    margin-top: 20px;
+}
