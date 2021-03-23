@@ -1,20 +1,18 @@
 /* eslint-disable import/no-anonymous-default-export */
 import './App.css'
 import React from 'react'
-import { SenseiProvider, themeDark as theme, } from "react-sensei";
+import { SenseiProvider, themeDarkOrange as theme, } from "react-sensei";
 
-import Logo from '../components/template/Logo'
-import Nav from '../components/template/menu/Nav'
+import Title from '../components/template/title/Logo'
 import Main from '../components/template/content/Main'
-import Footer from '../components/template/Footer'
+import Footer from '../components/template/footer/Footer'
 
 
 const App = () =>
   <SenseiProvider theme={theme}>
 
         <div className="app">
-            <Logo/>
-            <Nav/>
+            <Title/>
             <Main/>
             <Footer/>
         </div>

@@ -1,13 +1,11 @@
 /* Debugger CSS */
 .logo{
-    background-color: red;
     grid-area: logo;
 }
 .menu-area{
     grid-area: menu-area;
 }
 .header{
-    background-color: yellow;
     grid-area: header;
 }
 .content{
@@ -30,6 +28,6 @@ body {
     display: grid;
     height: 100vh;
     grid-template-columns: 1fr;
-    grid-template-rows: 10vh 15vh 10vh 1fr 10vh;
-    grid-template-areas: "logo" "menu-area" "header" "content" "footer";
+    grid-template-rows: 10vh 1fr 1fr 10vh;
+    grid-template-areas: "logo" "header" "content" "footer";
 }   

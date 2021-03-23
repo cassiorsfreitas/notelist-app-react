@@ -12,6 +12,8 @@ export default () =>
                 <a href="/" className="card"><Card/></a>
                 <a href="/" className="card"><Card/></a>
                 <a href="/" className="card"><Card/></a>
+                <a href="/" className="card"><Card/></a>
+                <a href="/" className="card"><Card/></a>
             </div>
         </main>
     </React.Fragment>

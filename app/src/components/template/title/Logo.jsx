@@ -4,5 +4,5 @@ import React from 'react'
 
 export default props =>
     <aside className="logo">
-        Logo    
+        <h1>Welcome back, Cássio</h1>
     </aside>
