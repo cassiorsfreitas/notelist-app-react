@@ -1,9 +1,11 @@
 /* eslint-disable import/no-anonymous-default-export */
-import './buttonAction.css'
+import './ButtonAction.css'
 import React from 'react'
 
 export default () => {
     return (
-        "Potato"
+        <a href="#/" className="float">
+            <i class="fa fa-plus"></i>
+        </a>
     )
 }

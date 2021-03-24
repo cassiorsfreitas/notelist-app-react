@@ -5,9 +5,9 @@ import StatCard from './StatusCard'
 
 const header =  () =>
     <header className="header">
-        <StatCard title="Created" value ="6"/>
-        <StatCard title="Opened" value ="4"/>
-        <StatCard title="Closed" value ="2"/>
+        <StatCard title="Created" value ="6" icon="list-ui-alt"/>
+        <StatCard title="Running" value ="4" icon="clock"/>
+        <StatCard title="Done" value ="2" icon="check"/>
     </header>
 
 

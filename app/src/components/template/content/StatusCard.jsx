@@ -6,7 +6,7 @@ import { StatIconCard } from "react-sensei";
 const statCard = props => {
   return (
     <div className="status-card">
-      <StatIconCard label={props.title} value={props.value} icon="list-ui-alt" />
+      <StatIconCard label={props.title} value={props.value} icon={props.icon} />
     </div>
   );
 };
