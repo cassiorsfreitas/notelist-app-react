@@ -1,5 +1,5 @@
 /* eslint-disable import/no-anonymous-default-export */
-import './Main.css'
+import './Home.css'
 import React from 'react'
 import Header from './Header'
 import Card from './Card'

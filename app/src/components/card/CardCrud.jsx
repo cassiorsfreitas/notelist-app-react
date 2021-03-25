@@ -1,5 +1,5 @@
+import './CardCrud.css'
 import React, { Component } from 'react'
-import Main from '../template/content/Main'
 
 const headerProps = {
     icon: 'list',
@@ -10,9 +10,13 @@ const headerProps = {
 export default class CardCrud extends Component {
     render () {
         return (
-            <Main {...headerProps}>
-                Simple Card
-            </Main>
+            <div className="container">
+
+                <div className="cardCrud">
+                    Simple Card
+                </div>
+
+            </div>
         )
     }
 }
