@@ -1,7 +1,10 @@
 import './CardCrud.css'
 import axios from 'axios'
 import React, { Component } from 'react'
-
+import { Link } from 'react-router-dom'
+import ButtonPrimary from '../template/button/ButtonPrimary'
+import ButtonSecondary from '../template/button/ButtonSecondary'
+import ButtonDisabled from '../template/button/ButtonDisabled'
 
 const baseUrl = 'http://localhost:3001/cards'
 const initialState = {
@@ -12,6 +15,12 @@ const initialState = {
 export default class CardCrud extends Component {
     
     state = {...initialState}
+
+    componentWillMount () {
+        axios(baseUrl).then ( resp => {
+            this.setState({list: resp.data})
+        })
+    }
 
     clear () {
         this.setState({ card: initialState.card })
@@ -30,7 +39,7 @@ export default class CardCrud extends Component {
 
     getUpdatedList (card) {
         const list = this.state.list.filter(c => c.id !== card.id)
-        list.unshift(list)
+        if (card) list.unshift(list)
         return list
     }
 
@@ -43,38 +52,37 @@ export default class CardCrud extends Component {
     renderForm() {
         return(
             <div className="form">
-                <div className="row">
-                    <div className="col-12 col-md-61">
-                        <div className="form-group">
-                            <h2>Title</h2>
-                            <input type="text" className="form-control" name="title" value={this.state.card.title} onChange={e => this.updateField(e)} placeholder="Enter title..."/>
-                        </div>
-                    </div>
-
-                    <div className="col-12 col-md-62">
-                        <div className="form-group">
-                            <h2>Description</h2>
-                            <input type="text" className="form-control" name="description" value={this.state.card.description} onChange={e => this.updateField(e)} placeholder="Enter description..."/>
-                        </div>
-                    </div>
-
-                    <div className="row">
-                        <div className="col-12 d-flex justify-content-end3">
-                            <button className="btn" onClick={e => this.save(e)}>
-                                Create
-                            </button>
-
-                            <button className="btn btn-secondary ml-2n" onClick={e => this.clear(e)}>
-                                Clear
-                            </button>
-                        </div>
-                    </div>
+                Create a new card
+                <input type="text" className="form__input" name="title" value={this.state.card.title} onChange={e => this.updateField(e)} placeholder="Enter a title for this card..."/>
+                <textarea rows="7" className="form__input" name="description" value={this.state.card.description} onChange={e => this.updateField(e)} placeholder="Add a more detailed description..."/>
+                {/* <div className="buttons">
+                    <button className="form__btn" onClick={e => this.save(e)}>Create</button>
+                    <button className="form__btn" onClick={e => this.clear(e)}>Clear</button>
+                </div> */}
+                <div className="buttons">
+                    <button className="form__btn" onClick={e => this.save(e)}><ButtonPrimary text="Create"/></button>
+                    <button className="form__btn" onClick={e => this.clear(e)}><ButtonSecondary text="Clear"/></button>
+                    <Link to="/">
+                    <button className="form__btn" ><ButtonDisabled text="Black"/></button>
+                    </Link>
                 </div>
             </div>
         )
     }
+
+    load(card) {
+        this.setState(card)
+    }
+
+    remove(card) {
+        axios.delete(`${baseUrl}/${card.id}`).then(resp => {
+            const list = this.getUpdatedList(null)
+            this.setState(list)
+        })
+    } 
     
     render () {
+        console.log(this.state.list)
         return (
             <div className="container">
                 <div>
