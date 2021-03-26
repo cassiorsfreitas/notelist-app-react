@@ -1,14 +1,14 @@
 {
-    "tasks": [
-        {
-        "id": 1,
-        "title": "Learning react",
-        "description": "JSX, compronents and create-react-app"
-        },
-        {
-        "id": 2,
-        "name": "Organize bookshelf",
-        "email": "Sort by category and year"
-        }
-    ]
+  "cards": [
+    {
+      "id": 1,
+      "title": "Learning react",
+      "description": "JSX, compronents and create-react-app"
+    },
+    {
+      "id": 2,
+      "title": "Organize bookshelf",
+      "description": "Sort by category and year"
+    }
+  ]
 }
