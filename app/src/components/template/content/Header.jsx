@@ -3,11 +3,11 @@ import './Header.css'
 import React from 'react'
 import StatCard from './StatusCard'
 
-const header =  () =>
+const header = (props) =>
     <header className="header">
-        <StatCard title="Created" value ="6" icon="list-ui-alt"/>
-        <StatCard title="Running" value ="4" icon="clock"/>
-        <StatCard title="Done" value ="2" icon="check"/>
+        <StatCard title="Created" value={props.created} icon="list-ui-alt"/>
+        <StatCard title="Running" value ={props.running} icon="clock"/>
+        <StatCard title="Done" value ={props.closed} icon="check"/>
     </header>
 
 

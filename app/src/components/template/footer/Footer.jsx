@@ -5,6 +5,6 @@ import React from 'react'
 export default props =>
     <footer className="footer">
         <div className="copyright">
-             Developed with <i className="fa fa-heart icon-danger"></i> by Cássio Freitas
+            Made with <i className="fa fa-heart icon-danger"></i> by Cássio Freitas
         </div> 
     </footer>

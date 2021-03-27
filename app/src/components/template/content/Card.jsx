@@ -4,11 +4,11 @@ import React from 'react'
 import { Card } from 'react-sensei'
 
 
-export default () => {
+export default (props) => {
     return (
       <div className="col-lg-8 offset-lg-2">
         <Card isPrimary>
-          I'm a simple accent card
+          {props.title}
         </Card>
       </div>
     );

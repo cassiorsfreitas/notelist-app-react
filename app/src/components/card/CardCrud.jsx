@@ -39,7 +39,7 @@ export default class CardCrud extends Component {
 
     getUpdatedList (card) {
         const list = this.state.list.filter(c => c.id !== card.id)
-        if (card) list.unshift(list)
+        if (card) list.unshift(card)
         return list
     }
 
@@ -51,6 +51,7 @@ export default class CardCrud extends Component {
 
     renderForm() {
         return(
+            
             <div className="form">
                 Create a new card
                 <input type="text" className="form__input" name="title" value={this.state.card.title} onChange={e => this.updateField(e)} placeholder="Enter a title for this card..."/>
@@ -60,29 +61,15 @@ export default class CardCrud extends Component {
                     <button className="form__btn" onClick={e => this.clear(e)}>Clear</button>
                 </div> */}
                 <div className="buttons">
-                    <button className="form__btn" onClick={e => this.save(e)}><ButtonPrimary text="Create"/></button>
+                    <button className="form__btn" onClick={e => this.save(e)}><ButtonPrimary text="Save"/></button>
                     <button className="form__btn" onClick={e => this.clear(e)}><ButtonSecondary text="Clear"/></button>
-                    <Link to="/">
-                    <button className="form__btn" ><ButtonDisabled text="Black"/></button>
-                    </Link>
+                    <Link to="/"><button className="form__btn" ><ButtonDisabled text="Back"/></button></Link>
                 </div>
             </div>
         )
     }
 
-    load(card) {
-        this.setState(card)
-    }
-
-    remove(card) {
-        axios.delete(`${baseUrl}/${card.id}`).then(resp => {
-            const list = this.getUpdatedList(null)
-            this.setState(list)
-        })
-    } 
-    
     render () {
-        console.log(this.state.list)
         return (
             <div className="container">
                 <div>
