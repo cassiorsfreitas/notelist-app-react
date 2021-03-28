@@ -1,0 +1,8 @@
+.simple-card{
+    display: flex;
+    justify-content: space-between;
+}
+
+.options{
+    display: flex;
+}

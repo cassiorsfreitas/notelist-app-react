@@ -2,6 +2,7 @@
 import './Home.css'
 import axios from 'axios'
 import React, { Component } from 'react'
+import { Link } from "react-router-dom";
 import Header from './Header'
 import Card from './Card'
 
@@ -34,7 +35,9 @@ export default class Home extends Component {
     renderRows() {
         return this.state.list.map(card => {
             return(
-                <a key={card.id} href="/" className="card"><Card title={card.title}/></a>
+                <Link to={`/card/${card.id}`} className="card" key={card.id}>
+                    <Card title={card.title}/>
+                </Link>
             )
         })
     }
@@ -48,6 +51,13 @@ export default class Home extends Component {
             const list = this.getUpdatedList(null)
             this.setState(list)
         })
+    }
+
+    details() {
+        <div className="details">
+            Potato
+            {this.state.card.description}
+        </div>
     }
 
     render () {

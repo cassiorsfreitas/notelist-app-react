@@ -3,11 +3,14 @@ import { Switch, Route, Redirect } from 'react-router-dom'
 
 import Home from '../components/template/content/Home'
 import CardCrud from '../components/card/CardCrud'
+import ViewCard from '../components/card/ViewCard'
+
 
 const routes = () => (
     <Switch>
         <Route exact path='/' component={Home} />
-        <Route path='/cards' component={CardCrud} />
+        <Route path='/new-card' component={CardCrud} />
+        <Route path='/card/:id' component={ViewCard} />
         <Redirect from='*' to='/' />
     </Switch>
 )

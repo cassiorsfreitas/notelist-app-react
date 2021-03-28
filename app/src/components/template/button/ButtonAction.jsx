@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 export default () => {
     return (
-        <Link to="/cards" className="float">
+        <Link to="/new-card" className="float">
             <i className="fa fa-plus"></i>
         </Link>
     )
