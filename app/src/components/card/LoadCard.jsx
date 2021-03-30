@@ -1,0 +1,1 @@
+// ISSUE: Use this component to make a single request for DB
