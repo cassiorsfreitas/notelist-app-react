@@ -35,7 +35,7 @@ export default class Home extends Component {
     renderRows() {
         return this.state.list.map(card => {
             return(
-                <Link to={`/card/${card.id}`} className="card" key={card.id}>
+                <Link to={`/cards/${card.id}`} className="card" key={card.id}>
                     <Card title={card.title}/>
                 </Link>
             )
@@ -51,13 +51,6 @@ export default class Home extends Component {
             const list = this.getUpdatedList(null)
             this.setState(list)
         })
-    }
-
-    details() {
-        <div className="details">
-            Potato
-            {this.state.card.description}
-        </div>
     }
 
     render () {

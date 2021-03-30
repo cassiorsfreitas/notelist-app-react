@@ -10,7 +10,7 @@ const routes = () => (
     <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/new-card' component={CardCrud} />
-        <Route path='/card/:id' component={ViewCard} />
+        <Route path='/cards/:id' component={ViewCard} />
         <Redirect from='*' to='/' />
     </Switch>
 )
