@@ -1,8 +1,8 @@
 {
   "cards": [
     {
-      "title": "Learning react",
-      "description": "JSX, compronents and create-react-app",
+      "title": "Learning reactss",
+      "description": "JSX, compronents and create-react-app, potato",
       "id": 1
     },
     {
@@ -19,11 +19,6 @@
       "title": "Potato",
       "description": "Potato desc",
       "id": 4
-    },
-    {
-      "title": "teste",
-      "description": "teste",
-      "id": 5
     }
   ]
 }

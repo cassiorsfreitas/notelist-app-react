@@ -42,17 +42,6 @@ export default class Home extends Component {
         })
     }
 
-    load(card) {
-        this.setState(card)
-    }
-
-    remove(card) {
-        axios.delete(`${baseUrl}/${card.id}`).then(resp => {
-            const list = this.getUpdatedList(null)
-            this.setState(list)
-        })
-    }
-
     render () {
         console.log(this.state.list)
         return( 

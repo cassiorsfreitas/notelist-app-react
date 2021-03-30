@@ -14,9 +14,19 @@ const initialState = {
 
 export default class CardCrud extends Component {
     
+    id = this.props.match.params.id
+    baseUrlCard = baseUrl + `/${this.id}`
+        
     state = {...initialState}
 
     componentWillMount () {
+        if (this.id) {
+            console.log(this.id)
+            axios(this.baseUrlCard).then( resp => {
+                this.setState({card: resp.data})
+            })
+        }
+        
         axios(baseUrl).then ( resp => {
             this.setState({list: resp.data})
         })
@@ -37,9 +47,20 @@ export default class CardCrud extends Component {
             })
     }
 
-    getUpdatedList (card) {
+    load(card) {
+        this.setState(card)
+    }
+
+    remove(card) {
+        axios.delete(`${this.baseUrlCard}`).then(resp => {
+            const list = this.getUpdatedList(card, false)
+            this.setState({card: initialState.card, list})
+        })
+    }
+
+    getUpdatedList (card, add = true) {
         const list = this.state.list.filter(c => c.id !== card.id)
-        if (card) list.unshift(card)
+        if (add) list.unshift(card)
         return list
     }
 
@@ -58,6 +79,7 @@ export default class CardCrud extends Component {
                 
                 <div className="buttons">
                     <button className="form__btn" onClick={e => this.save(e)}><ButtonPrimary text="Save"/></button>
+                    <button className="form__btn" onClick={e => this.remove(e)}><ButtonPrimary text="Delete"/></button>
                     <Link to="/"><button className="form__btn" ><ButtonDisabled className="form__btn" text="Back"/></button></Link>
                 </div>
             </div>
