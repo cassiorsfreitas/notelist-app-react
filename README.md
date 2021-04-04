@@ -1,6 +1,13 @@
-# Getting Started with Create React App
+# Note list React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Hey!** :blush: This is my first project in React. If you find any tips, please share them with me and let me know what can be improved.
+
+![](https://github.com/cassiorsfreitas/notelist-app-react/blob/master/Note-List-React.gif)
+
+## Check it
+- [Lifting State up in ReactJS](https://www.youtube.com/watch?v=ZluNj0-NpNI&feature=youtu.be)
+- [React-Sensei UI component library](https://react-sensei.com/)
+- [JSON Server REST API](https://www.npmjs.com/package/json-server)
 
 ## Available Scripts
 
