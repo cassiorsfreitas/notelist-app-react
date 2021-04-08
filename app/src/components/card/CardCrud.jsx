@@ -1,11 +1,13 @@
-import './CardCrud.css'
-import axios from 'axios'
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import axios from 'axios'
+
 import ButtonPrimary from '../template/button/ButtonPrimary'
 import ButtonDisabled from '../template/button/ButtonDisabled'
 import ButtonSecondary from '../template/button/ButtonSecondary'
-import { toast } from 'react-toastify'
+
+import './CardCrud.css'
 import 'react-toastify/dist/ReactToastify.css';
 
 
@@ -85,10 +87,6 @@ export default class CardCrud extends Component {
         return (code === 200) ? toast.success(message) : toast.error(message) 
     }
 
-    testButton() {
-        console.log("Working!!!")
-    }
-
     renderForm() {
         return(
             <div className="form">
@@ -107,9 +105,23 @@ export default class CardCrud extends Component {
                     placeholder="Add a more detailed description..."/>
                 
                 <div className="buttons">
-                    <ButtonPrimary className="form__btn" text="Save" onClick={e => this.save(e)}/>
-                    <ButtonDisabled className="form__btn "text="Delete" onClick={e => this.remove(e)}/>
-                    <Link to="/"><ButtonSecondary className="form__btn" text="Back"/></Link>
+                    <div className="form__btn">
+                        <ButtonPrimary 
+                        text="Save" 
+                        onClick={e => this.save(e)}/>
+                    </div>
+                    <div className="form__btn">
+                        <ButtonDisabled 
+                        text="Delete" 
+                        onClick={e => this.remove(e)}/>
+                    </div>
+                    <div className="form__btn">
+                        <Link to="/" >
+                            <ButtonSecondary LinkTo="/"
+                            text="Back"/>
+                        </Link>
+                    </div>
+                    
                 </div>
             </div>
         )
