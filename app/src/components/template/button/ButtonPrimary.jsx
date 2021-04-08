@@ -3,9 +3,12 @@ import React from 'react'
 import { CleanButton } from "react-sensei";
 
 
+
 const button = (props) => {
-    return (
-      <CleanButton isPrimary>{props.text}</CleanButton>
+  const {text, onClick} = props
+  
+  return (
+      <CleanButton isPrimary onClick={onClick}>{text}</CleanButton>
     )
   }
 

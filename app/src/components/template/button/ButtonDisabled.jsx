@@ -4,9 +4,10 @@ import { CleanButton } from "react-sensei";
 
 
 const button = (props) => {
-    return (
-      <CleanButton isDefault>{props.text}</CleanButton>
-    )
-  }
+  const {text, onClick} = props
+  return (
+    <CleanButton isDefault onClick={onClick} >{text}</CleanButton>
+  )
+}
 
 export default button

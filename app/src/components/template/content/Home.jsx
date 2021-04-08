@@ -16,7 +16,7 @@ export default class Home extends Component {
 
     state = {...initialState}
 
-    componentWillMount () {
+    componentDidMount () {
         axios(baseUrl).then ( resp => {
             this.setState({list: resp.data})
         })

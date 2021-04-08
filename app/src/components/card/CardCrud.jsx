@@ -4,6 +4,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import ButtonPrimary from '../template/button/ButtonPrimary'
 import ButtonDisabled from '../template/button/ButtonDisabled'
+import ButtonSecondary from '../template/button/ButtonSecondary'
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const baseUrl = 'http://localhost:3001/cards'
@@ -12,6 +15,8 @@ const initialState = {
     list: []
 }
 
+toast.configure()
+
 export default class CardCrud extends Component {
     
     id = this.props.match.params.id
@@ -19,9 +24,8 @@ export default class CardCrud extends Component {
         
     state = {...initialState}
 
-    componentWillMount () {
+    componentDidMount () {
         if (this.id) {
-            console.log(this.id)
             axios(this.baseUrlCard).then( resp => {
                 this.setState({card: resp.data})
             })
@@ -43,7 +47,8 @@ export default class CardCrud extends Component {
         axios[method](url, card)
             .then( resp => {
                 const list = this.getUpdatedList(resp.data)
-                this.setState({ card: initialState.card, list})
+                this.setState({ card: card, list})
+                this.notify(200, 'Card created successfully!')
             })
     }
 
@@ -55,6 +60,7 @@ export default class CardCrud extends Component {
         axios.delete(`${this.baseUrlCard}`).then(resp => {
             const list = this.getUpdatedList(card, false)
             this.setState({card: initialState.card, list})
+            this.notify(300, 'Card removed successfully!')
         })
     }
 
@@ -70,17 +76,40 @@ export default class CardCrud extends Component {
         this.setState({ card })
     }
 
+    showTitle() {
+        const title = this.id ? "Update the card" : "Create a new card"
+        return title
+    }
+
+    notify = (code = 300, message) => {
+        return (code === 200) ? toast.success(message) : toast.error(message) 
+    }
+
+    testButton() {
+        console.log("Working!!!")
+    }
+
     renderForm() {
         return(
             <div className="form">
-                Create a new card
-                <input type="text" className="form__input" name="title" value={this.state.card.title} onChange={e => this.updateField(e)} placeholder="Enter a title for this card..."/>
-                <textarea rows="7" className="form__input" name="description" value={this.state.card.description} onChange={e => this.updateField(e)} placeholder="Add a more detailed description..."/>
+                {this.showTitle()}
+                <input type="text"
+                    className="form__input"
+                    name="title"
+                    value={this.state.card.title}
+                    onChange={e => this.updateField(e)}
+                    placeholder="Enter a title for this card..."/>
+                <textarea rows="7"
+                    className="form__input"
+                    name="description"
+                    value={this.state.card.description}
+                    onChange={e => this.updateField(e)}
+                    placeholder="Add a more detailed description..."/>
                 
                 <div className="buttons">
-                    <button className="form__btn" onClick={e => this.save(e)}><ButtonPrimary text="Save"/></button>
-                    <button className="form__btn" onClick={e => this.remove(e)}><ButtonPrimary text="Delete"/></button>
-                    <Link to="/"><button className="form__btn" ><ButtonDisabled className="form__btn" text="Back"/></button></Link>
+                    <ButtonPrimary className="form__btn" text="Save" onClick={e => this.save(e)}/>
+                    <ButtonDisabled className="form__btn "text="Delete" onClick={e => this.remove(e)}/>
+                    <Link to="/"><ButtonSecondary className="form__btn" text="Back"/></Link>
                 </div>
             </div>
         )

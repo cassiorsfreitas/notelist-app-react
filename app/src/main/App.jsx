@@ -3,6 +3,7 @@ import React from 'react'
 import { SenseiProvider, themeDarkOrange as theme, } from "react-sensei";
 import { BrowserRouter as Router} from "react-router-dom";
 
+
 import Title from '../components/template/title/Logo'
 import Routes from '../routes/Routes'
 import Footer from '../components/template/footer/Footer'
