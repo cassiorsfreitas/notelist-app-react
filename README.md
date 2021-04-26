@@ -5,6 +5,7 @@
 ![](https://github.com/cassiorsfreitas/notelist-app-react/blob/master/Note-List-React.gif)
 
 ## Check it
+- [Preview Heroku Cloud (wait a few seconds)](https://notelist-react-app.herokuapp.com/)
 - [Lifting State up in ReactJS](https://www.youtube.com/watch?v=ZluNj0-NpNI&feature=youtu.be)
 - [React-Sensei UI component library](https://react-sensei.com/)
 - [JSON Server REST API](https://www.npmjs.com/package/json-server)
